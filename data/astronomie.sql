@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: bsd:3306
--- Generation Time: Mar 17, 2023 at 09:01 AM
+-- Generation Time: Mar 17, 2023 at 05:17 PM
 -- Server version: 10.11.2-MariaDB-1:10.11.2+maria~ubu2204
 -- PHP Version: 8.1.15
 
@@ -31,12 +31,12 @@ USE `astronomie`;
 
 CREATE TABLE `article` (
   `id_article` int(11) NOT NULL,
-  `titre` varchar(255) NOT NULL,
-  `contenu` text NOT NULL,
-  `image_url` varchar(255) NOT NULL,
+  `titre` varchar(255) DEFAULT NULL,
+  `contenu` text DEFAULT NULL,
+  `image_url` varchar(500) DEFAULT NULL,
   `id_utilisateur` int(11) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
-  `modified_at` datetime NOT NULL
+  `modified_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -47,11 +47,11 @@ CREATE TABLE `article` (
 
 CREATE TABLE `utilisateur` (
   `id_utilisateur` int(11) NOT NULL,
-  `nom` varchar(255) NOT NULL,
-  `prenom` varchar(255) NOT NULL,
-  `pwd` varchar(255) NOT NULL,
-  `email` text NOT NULL,
-  `role` varchar(255) NOT NULL,
+  `nom` varchar(255) DEFAULT NULL,
+  `prenom` varchar(255) DEFAULT NULL,
+  `pwd` varchar(255) DEFAULT NULL,
+  `email` text DEFAULT NULL,
+  `role` varchar(255) NOT NULL DEFAULT 'redacteur',
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -80,13 +80,13 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT for table `article`
 --
 ALTER TABLE `article`
-  MODIFY `id_article` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_article` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `id_utilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_utilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables
