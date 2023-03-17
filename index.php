@@ -2,7 +2,7 @@
 session_start();
 include './inc/fonctions.php';
 
-$limit = 3;
+$limit = 10;
 $offset = 0;
 
 include './view/index.view.php';
