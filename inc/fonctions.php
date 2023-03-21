@@ -49,7 +49,8 @@ function isGetIdValid(): bool
 function getArticleLimit(int $limit, int $offset): array
 {
    require 'pdo.php';
-   $sqlRequest = "SELECT * FROM article ORDER BY id_article DESC LIMIT :limit OFFSET :offset";
+   $sqlRequest = "SELECT * FROM `article` INNER JOIN utilisateur ON article.utilisateur_id = utilisateur.id_utilisateur  ORDER BY article.id_article DESC LIMIT :limit OFFSET :offset;";
+   //$sqlRequest = "SELECT * FROM article ORDER BY id_article DESC LIMIT :limit OFFSET :offset";
    $resultat = $conn->prepare($sqlRequest);
    $resultat->bindValue(':limit', $limit, PDO::PARAM_INT);
    $resultat->bindValue(':offset', $offset, PDO::PARAM_INT);

@@ -39,6 +39,7 @@
                             <p><img src="<?= $article['image_url'] ?>"></p>
                         <?php endif; ?>
                         <p><?= $article['contenu'] ?></p>
+                        <p><strong>Ecrit par</strong> : <?= $article['prenom'] ?> <?= strtoupper($article['nom']) ?> <strong>le</strong> <?= $article['created_at']?></p>
                     </article>
             <?php
                 endforeach;
