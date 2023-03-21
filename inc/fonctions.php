@@ -80,12 +80,12 @@ function suppArticleById(int $idArticle): bool
 function insertArticle(string $titre, string $contenu, string $image_url, int $id_utilisateur): int
 {
    require 'pdo.php';
-   $requete = 'INSERT INTO article (titre,contenu,image_url,id_utilisateur) VALUES (:titre, :contenu, :image_url, :id_utilisateur)';
+   $requete = 'INSERT INTO article (titre,contenu,image_url,utilisateur_id) VALUES (:titre, :contenu, :image_url, :utilisateur_id)';
    $resultat = $conn->prepare($requete);
    $resultat->bindValue(':titre', $titre, PDO::PARAM_STR);
    $resultat->bindValue(':contenu', $contenu, PDO::PARAM_STR);
    $resultat->bindValue(':image_url', $image_url, PDO::PARAM_STR);
-   $resultat->bindValue(':id_utilisateur', $id_utilisateur, PDO::PARAM_STR);
+   $resultat->bindValue(':utilisateur_id', $id_utilisateur, PDO::PARAM_STR);
    $resultat->execute();
    return $conn->lastInsertId();
 }
@@ -158,7 +158,7 @@ function error404(): void
 
 function redirectUrl(string $path = ''): void
 {
-   $homeUrl = 'http://' . $_SERVER['HTTP_HOST']. '/astronomie_blog' ;
+   $homeUrl = 'http://' . $_SERVER['HTTP_HOST']. '/ceppic_php_blog' ;
    $homeUrl .= '/'. $path;
    header("Location: {$homeUrl}");
    exit();
