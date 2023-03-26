@@ -1,6 +1,6 @@
 <?php
 /*
-* Mise à jour d'un film
+* Mise à jour d'un article
 */
 include '../inc/fonctions.php';
 
