@@ -19,7 +19,7 @@
             </div>
             <div>
                 <label for="nom">Nom *</label>
-                <input type="nom" name="nom" id="nom" value="<?= $nom ?>">
+                <input type="text" name="nom" id="nom" value="<?= $nom ?>">
             </div>
             <div>
                 <label for="email">Email *</label>
