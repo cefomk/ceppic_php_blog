@@ -21,11 +21,11 @@
             <h1>Blog Astronomie</h1>
             <p>
                 <?php if (isUserLogin()) : ?>
-                          <a href="./adminBlog/ajout.php" role="button">Ajouter un article</a>
-                          <a href="./login/deconnexion.php" role="button">Se déconnecter</a>
-                <?php else: ?>
-                          <a href="./login/" role="button">Se connecter</a>
-                          <a href="./register/" role="button">S'enregistrer</a>
+                    <a href="./adminBlog/ajout.php" role="button">Ajouter un article</a>
+                    <a href="./login/deconnexion.php" role="button">Se déconnecter</a>
+                <?php else : ?>
+                    <a href="./login/" role="button">Se connecter</a>
+                    <a href="./register/" role="button">S'enregistrer</a>
                 <?php endif ?>
             </p>
         </header>
@@ -35,11 +35,11 @@
                 foreach (getArticleLimit($limit, $offset) as $article) : ?>
                     <article>
                         <h4><?= $article['titre'] ?></h4>
-                        <?php if ($article['image_url'] != null) : ?>
-                            <p><img src="<?= $article['image_url'] ?>"></p>
+                        <?php if ($article['image'] != null) : ?>
+                            <p><img src="<?= $article['image'] ?>"></p>
                         <?php endif; ?>
                         <p><?= $article['contenu'] ?></p>
-                        <p><strong>Ecrit par</strong> : <?= $article['prenom'] ?> <?= strtoupper($article['nom']) ?> <strong>le</strong> <?= $article['created_at']?></p>
+                        <p><strong>Ecrit par</strong> : <?= $article['prenom'] ?> <?= strtoupper($article['nom']) ?> <strong>le</strong> <?= $article['created_at'] ?></p>
                     </article>
             <?php
                 endforeach;

@@ -7,22 +7,25 @@ include '../inc/fonctions.php';
 
 (isUserLogin()) ?: redirectUrl('view/404.php');
 
-   
-$titre = $contenu = $image_url = '';
+$titre = $contenu = $image = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') :
 
+    $target_dir = "../uploads/";
+    $imageName = $_FILES["image"]["name"];
+    $target_file = $target_dir . basename($imageName);
+    move_uploaded_file($_FILES['image']['tmp_name'],$target_file);
+
     $titre = cleanData($_POST['titre']);
-    $image_url = cleanData($_POST['image_url']);
+    $image = "./uploads/".$imageName;
     $contenu = cleanData($_POST['contenu']);
 
-    insertArticle($titre,$contenu ,$image_url, $_SESSION['id_utilisateur']);
+    insertArticle($titre, $contenu, $image, $_SESSION['id_utilisateur']);
 
-    if ($_SESSION['login'] === 'redacteur'):
-       redirectUrl();
-    else:
-//dd($_SESSION);
-       redirectUrl('./adminBlog/');
+    if ($_SESSION['login'] === 'redacteur') :
+        redirectUrl();
+    else :
+        redirectUrl('./adminBlog/');
     endif;
 endif;
 

@@ -8,14 +8,14 @@ include '../inc/fonctions.php';
 
 $titreDb = getArticleById($id)['titre'];
 $contenuDb = getArticleById($id)['contenu'];
-$imageUrlDb = getArticleById($id)['image_url'];
+$imageUrlDb = getArticleById($id)['image'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') :
     $titre = cleanData($_POST['titre']);
     $contenu = cleanData($_POST['contenu']);
-    $image_url = cleanData($_POST['image_url']);
+    $image = cleanData($_POST['image']);
 
-    updateArticle($id, $titre, $contenu, $image_url);
+    updateArticle($id, $titre, $contenu, $image);
 
     header('Location: ./index.php');
     exit();

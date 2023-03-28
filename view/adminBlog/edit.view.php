@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,8 +22,8 @@
                 <textarea name="contenu" id="contenu"><?= $contenuDb ?></textarea>
             </div>
             <div>
-                <label for="image_url">Image ULR</label>
-                <textarea name="image_url" id="image_url"><?= $imageUrlDb ?></textarea>
+                <label for="image">Image ULR</label>
+                <textarea name="image" id="image"><?= $imageUrlDb ?></textarea>
             </div>
             <div>
                 <input type="submit" value="Valider">
