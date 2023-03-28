@@ -5,6 +5,8 @@
 session_start();
 include '../inc/fonctions.php';
 
+(isAdminLogin()) ?: redirectUrl('view/404.php');
+
 (isUserLogin()) ?: redirectUrl('view/404.php');
 
 $titre = $contenu = $image = '';

@@ -122,6 +122,15 @@ function isUserLogin(): bool
    endif;
 }
 
+function isAdminLogin(): bool
+{
+   if (isset($_SESSION['login']) && $_SESSION['login'] == "admin") :
+      return true;
+   else :
+      return false;
+   endif;
+}
+
 function findEmail(string $email): array|bool
 {
    require 'pdo.php';

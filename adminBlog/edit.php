@@ -4,6 +4,8 @@
 */
 include '../inc/fonctions.php';
 
+(isAdminLogin()) ?: redirectUrl('view/404.php');
+
 (isGetIdValid()) ? $id = $_GET['id'] : error404();
 
 $titreDb = getArticleById($id)['titre'];
