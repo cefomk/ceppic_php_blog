@@ -12,7 +12,7 @@
 <body>
     <main class="container">
         <h1>Mise à jour d'un article</h1>
-        <form method="POST" class="form">
+        <form method="POST" class="form"  enctype="multipart/form-data">
             <div>
                 <label for="titre">Titre</label>
                 <input type="titre" name="titre" id="titre" value="<?= $titreDb ?>">
@@ -22,8 +22,8 @@
                 <textarea name="contenu" id="contenu"><?= $contenuDb ?></textarea>
             </div>
             <div>
-                <label for="image">Image ULR</label>
-                <textarea name="image" id="image"><?= $imageUrlDb ?></textarea>
+                <label for="image">Image</label>
+                <input type="file" name="image" id="image">
             </div>
             <div>
                 <input type="submit" value="Valider">

@@ -17,7 +17,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
     move_uploaded_file($_FILES['image']['tmp_name'],$target_file);
 
     $titre = cleanData($_POST['titre']);
+    
+    if ($imageName):
     $image = "./uploads/".$imageName;
+    else:
+        $image = "";
+    endif;
+
     $contenu = cleanData($_POST['contenu']);
 
     insertArticle($titre, $contenu, $image, $_SESSION['id_utilisateur']);

@@ -39,7 +39,7 @@
                <tr>
                   <td><?= $value['id_article'] ?></td>
                   <td><?= $value['titre'] ?></td>
-                  <td><?= $value['contenu']?></td>
+                  <td><?= substr($value['contenu'],0,50). " (...)"?></td>
                   <td><?= $value['created_at'] ?></td>
                   <td>
                      <a href="./edit.php?id=<?= $value['id_article'] ?>" role="button">Edit</a>

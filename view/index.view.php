@@ -21,7 +21,11 @@
             <h1>Blog Astronomie</h1>
             <p>
                 <?php if (isUserLogin()) : ?>
-                    <a href="./adminBlog/ajout.php" role="button">Ajouter un article</a>
+                    <?php if ($_SESSION['login'] == "admin"): ?>
+                        <a href="./adminBlog/" role="button">Admin</a>
+                    <?php else: ?>
+                        <a href="./adminBlog/ajout.php" role="button">Ajouter un article</a>
+                    <?php endif ?>
                     <a href="./login/deconnexion.php" role="button">Se déconnecter</a>
                 <?php else : ?>
                     <a href="./login/" role="button">Se connecter</a>

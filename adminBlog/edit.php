@@ -8,12 +8,21 @@ include '../inc/fonctions.php';
 
 $titreDb = getArticleById($id)['titre'];
 $contenuDb = getArticleById($id)['contenu'];
-$imageUrlDb = getArticleById($id)['image'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') :
     $titre = cleanData($_POST['titre']);
     $contenu = cleanData($_POST['contenu']);
-    $image = cleanData($_POST['image']);
+   
+    $target_dir = "../uploads/";
+    $imageName = $_FILES["image"]["name"];
+    $target_file = $target_dir . basename($imageName);
+    move_uploaded_file($_FILES['image']['tmp_name'],$target_file);
+
+    $titre = cleanData($_POST['titre']);
+    
+    if ($imageName):
+        $image = "./uploads/".$imageName;
+    endif;
 
     updateArticle($id, $titre, $contenu, $image);
 
