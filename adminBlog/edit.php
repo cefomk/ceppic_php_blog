@@ -10,8 +10,6 @@ $titreDb = getArticleById($id)['titre'];
 $contenuDb = getArticleById($id)['contenu'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') :
-    $titre = cleanData($_POST['titre']);
-    $contenu = cleanData($_POST['contenu']);
    
     $target_dir = "../uploads/";
     $imageName = $_FILES["image"]["name"];
@@ -22,7 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
     
     if ($imageName):
         $image = "./uploads/".$imageName;
+    else:
+        $image = "";
     endif;
+
+    $titre = cleanData($_POST['titre']);
+    $contenu = cleanData($_POST['contenu']);
 
     updateArticle($id, $titre, $contenu, $image);
 
